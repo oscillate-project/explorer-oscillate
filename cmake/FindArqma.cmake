@@ -2,8 +2,8 @@
 # CMake helper for the majority of the cpp-ethereum modules.
 #
 # This module defines
-#     ARQMA_XXX_LIBRARIES, the libraries needed to use ethereum.
-#     ARQMA_FOUND, If false, do not try to use ethereum.
+#     OSCILALTE_XXX_LIBRARIES, the libraries needed to use ethereum.
+#     OSCILLATE_FOUND, If false, do not try to use ethereum.
 #
 # File addetped from cpp-ethereum
 #
@@ -32,7 +32,7 @@ set(LIBS common;blocks;cryptonote_basic;cryptonote_core;multisig;net;
          cryptonote_protocol;daemonizer;mnemonics;epee;lmdb;device;
          blockchain_db;ringct;wallet;cncrypto;easylogging;version;checkpoints)
 
-set(Arqma_INCLUDE_DIRS "${CPP_ARQMA_DIR}")
+set(Oscillate_INCLUDE_DIRS "${CPP_OSCILLATE_DIR}")
 
 # if the project is a subset of main cpp-ethereum project
 # use same pattern for variables as Boost uses
@@ -41,37 +41,37 @@ foreach (l ${LIBS})
 
 	string(TOUPPER ${l} L)
 
-	find_library(Arqma_${L}_LIBRARY
+	find_library(Oscillate_${L}_LIBRARY
 		NAMES ${l}
 		PATHS ${CMAKE_LIBRARY_PATH}
 		PATH_SUFFIXES "/src/${l}" "/src/" "/external/db_drivers/lib${l}" "/lib" "/src/crypto" "/contrib/epee/src" "/external/easylogging++/"
 		NO_DEFAULT_PATH
 	)
 
-	set(Arqma_${L}_LIBRARIES ${Arqma_${L}_LIBRARY})
+	set(Oscillate_${L}_LIBRARIES ${Oscillate_${L}_LIBRARY})
 
-	message(STATUS FindArqma " Arqma_${L}_LIBRARIES ${Arqma_${L}_LIBRARY}")
+	message(STATUS FindOscillate " Oscillate_${L}_LIBRARIES ${Oscillate_${L}_LIBRARY}")
 
 	add_library(${l} STATIC IMPORTED)
-	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${Arqma_${L}_LIBRARIES})
+	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${Oscillate_${L}_LIBRARIES})
 
 endforeach()
 
-if (EXISTS ${ARQMA_BUILD_DIR}/src/ringct/libringct_basic.a)
-	message(STATUS FindArqma " found libringct_basic.a")
+if (EXISTS ${OSCILLATE_BUILD_DIR}/src/ringct/libringct_basic.a)
+	message(STATUS FindOscillate " found libringct_basic.a")
 	add_library(ringct_basic STATIC IMPORTED)
 	set_property(TARGET ringct_basic
-			PROPERTY IMPORTED_LOCATION ${ARQMA_BUILD_DIR}/src/ringct/libringct_basic.a)
+			PROPERTY IMPORTED_LOCATION ${OSCILLATE_BUILD_DIR}/src/ringct/libringct_basic.a)
 endif()
 
 
-message(STATUS ${ARQMA_SOURCE_DIR}/build)
+message(STATUS ${OSCILLATE_SOURCE_DIR}/build)
 
-# include arqma headers
+# include oscillate headers
 include_directories(
-		${ARQMA_SOURCE_DIR}/src
-		${ARQMA_SOURCE_DIR}/external
-		${ARQMA_SOURCE_DIR}/build/Linux/release-v0.5/release
-		${ARQMA_SOURCE_DIR}/external/easylogging++
-		${ARQMA_SOURCE_DIR}/contrib/epee/include
-		${ARQMA_SOURCE_DIR}/external/db_drivers/liblmdb)
+		${OSCILLATE_SOURCE_DIR}/src
+		${OSCILLATE_SOURCE_DIR}/external
+		${OSCILLATE_SOURCE_DIR}/build/Linux/release-v0.5/release
+		${OSCILLATE_SOURCE_DIR}/external/easylogging++
+		${OSCILLATE_SOURCE_DIR}/contrib/epee/include
+		${OSCILLATE_SOURCE_DIR}/external/db_drivers/liblmdb)

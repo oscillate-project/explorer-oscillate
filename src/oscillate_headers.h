@@ -2,17 +2,17 @@
 // Created by mwo on 5/11/15.
 //
 
-#ifndef XMREG01_ARQMA_HEADERS_H_H
-#define XMREG01_ARQMA_HEADERS_H_H
+#ifndef XMREG01_OSCILLATE_HEADERS_H_H
+#define XMREG01_OSCILLATE_HEADERS_H_H
 
 #define DB_LMDB 3
 #define BLOCKCHAIN_DB DB_LMDB
 
 
-#define UNSIGNED_TX_PREFIX "Arqma unsigned tx set\003"
-#define SIGNED_TX_PREFIX "Arqma signed tx set\003"
-#define KEY_IMAGE_EXPORT_FILE_MAGIC "Arqma key image export\002"
-#define OUTPUT_EXPORT_FILE_MAGIC "Arqma output export\003"
+#define UNSIGNED_TX_PREFIX "Oscillate unsigned tx set\003"
+#define SIGNED_TX_PREFIX "Oscillate signed tx set\003"
+#define KEY_IMAGE_EXPORT_FILE_MAGIC "Oscillate key image export\002"
+#define OUTPUT_EXPORT_FILE_MAGIC "Oscillate output export\003"
 
 #define FEE_ESTIMATE_GRACE_BLOCKS 10 // estimate fee valid for that many blocks
 
@@ -41,4 +41,4 @@
 #include "string_coding.h"
 
 
-#endif //XMREG01_ARQMA_HEADERS_H_H
+#endif //XMREG01_OSCILLATE_HEADERS_H_H

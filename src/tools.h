@@ -7,7 +7,7 @@
 
 #define PATH_SEPARARTOR '/'
 
-#define ARQ_AMOUNT(value) \
+#define osl_AMOUNT(value) \
     static_cast<double>(value) / 1e9
 
 #define REMOVE_HASH_BRAKETS(a_hash) \
@@ -15,7 +15,7 @@
 
 
 
-#include "arqma_headers.h"
+#include "oscillate_headers.h"
 
 #include "../ext/fmt/ostream.h"
 #include "../ext/fmt/format.h"
@@ -222,7 +222,7 @@ get_payment_id(const transaction &tx,
 
 
 inline double
-get_arq(uint64_t core_amount)
+get_osl(uint64_t core_amount)
 {
     return static_cast<double>(core_amount) / 1e9;
 }
@@ -270,7 +270,7 @@ decrypt(const std::string &ciphertext,
 public_key
 get_tx_pub_key_from_received_outs(const transaction &tx);
 
-static string arq_amount_to_str(const uint64_t &arq_amount,
+static string osl_amount_to_str(const uint64_t &osl_amount,
                   string _format="{:0.9f}",
                   bool zero_to_question_mark = true)
 {
@@ -278,13 +278,13 @@ static string arq_amount_to_str(const uint64_t &arq_amount,
 
     if (!zero_to_question_mark)
     {
-        amount_str = fmt::format(_format, ARQ_AMOUNT(arq_amount));
+        amount_str = fmt::format(_format, osl_AMOUNT(osl_amount));
     }
     else
     {
-        if (arq_amount > 0 && zero_to_question_mark == true)
+        if (osl_amount > 0 && zero_to_question_mark == true)
         {
-            amount_str = fmt::format(_format, ARQ_AMOUNT(arq_amount));
+            amount_str = fmt::format(_format, osl_AMOUNT(osl_amount));
         }
     }
 

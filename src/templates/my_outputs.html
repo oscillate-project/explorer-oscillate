@@ -163,7 +163,7 @@
     <div class="table-container">
       
       <div class="table-subheader">
-        Sum ARQ from matched outputs (i.e., incoming ARQ):
+        Sum OSL from matched outputs (i.e., incoming OSL):
         {{#found_our_outputs}}
         {{sum_xmr}}
         {{/found_our_outputs}}
@@ -271,11 +271,11 @@
       <table class="pure-table pure-table-striped">
         <tr>
           <td>Sum from matched and marked by * ring member's outputs</td>
-          <td>{{sum_mixin_xmr}} ARQ</td>
+          <td>{{sum_mixin_xmr}} OSL</td>
         </tr>
         <tr>
           <td>Possible spending is</td>
-          <td>{{possible_spending}} ARQ (tx fee included)</td>
+          <td>{{possible_spending}} OSL (tx fee included)</td>
         </tr>
         <tr>
           <td colspan="2">
@@ -286,7 +286,7 @@
         <tr>
           <td colspan="2">
             Number of our possible mixins is {{no_all_possible_mixins}}
-            for {{all_possible_mixins_amount}} ARQ.
+            for {{all_possible_mixins_amount}} OSL.
           </td>
         </tr>
       </table>
